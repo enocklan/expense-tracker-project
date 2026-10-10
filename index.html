@@ -1,11 +1,132 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="Track expenses across currencies using live exchange rates.">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="./style.css">
+    <script type="module" src="./src/main.js"></script>
 </head>
 <body>
-    
+    <header class="site-header">
+        <div class="container header-content">
+            <p class="eyebrow">YOUR MONEY, IN ONE PLACE</p>
+            <h1>Expense Tracker</h1>
+            <p>Every trip, every currency, one clear picture of your spending.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <p id="app-status" class="status" role="status" aria-live="polite">
+            Connecting to live exchange rates...
+        </p>
+
+        <section class="summary" aria-labelledby="summary-heading">
+            <div class="summary-copy">
+                <p class="eyebrow">YOUR SPENDING AT A GLANCE</p>
+                <h2 id="summary-heading">Total expenses</h2>
+                <p id="total-expenses" class="total" aria-live="polite">KES 0.00</p>
+                <p id="expense-count" class="muted">0 expenses</p>
+            </div>
+            <!-- <div class="summary-controls">
+                <label for="home-currency">Home currency</label>
+                <select id="home-currency">
+                    <option value="KES">KES — Kenyan Shilling</option>
+                    <option value="USD">USD — US Dollar</option>
+                    <option value="EUR">EUR — Euro</option>
+                    <option value="GBP">GBP — British Pound</option>
+                    <option value="JPY">JPY — Japanese Yen</option>
+                    <option value="CAD">CAD — Canadian Dollar</option>
+                    <option value="AUD">AUD — Australian Dollar</option>
+                    <option value="CHF">CHF — Swiss Franc</option>
+                </select>
+                <p id="rate-updated" class="muted">Rates update when you change home currency.</p>
+            </div> -->
+        </section>
+
+        <section class="panel" aria-labelledby="form-heading">
+            <h2 id="form-heading">Add an Expense</h2>
+
+            <form id="expense-form">
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input
+                        type="text"
+                        id="description"
+                        name="description"
+                        placeholder="e.g. Lunch"
+                        required
+                        maxlength="100"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <input
+                        type="number"
+                        id="amount"
+                        name="amount"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="e.g. 500"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="currency">Original currency</label>
+                    <select id="currency" name="currency" required>
+                        <option value="KES">KES — Kenyan Shilling</option>
+                        <option value="USD">USD — US Dollar</option>
+                        <option value="EUR">EUR — Euro</option>
+                        <option value="GBP">GBP — British Pound</option>
+                        <option value="JPY">JPY — Japanese Yen</option>
+                        <option value="CAD">CAD — Canadian Dollar</option>
+                        <option value="AUD">AUD — Australian Dollar</option>
+                        <option value="CHF">CHF — Swiss Franc</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" name="category" required>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <button class="primary-button" type="submit">Add expense <span aria-hidden="true">+</span></button>
+            </form>
+        </section>
+
+        <section class="panel" aria-labelledby="expenses-heading">
+            <div class="section-heading">
+                <h2 id="expenses-heading">Your Expenses</h2>
+
+                <div class="filter-group">
+                    <label for="category-filter">Filter</label>
+                    <select id="category-filter">
+                        <option value="All">All categories</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="expenses-list" class="expenses-list" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Live exchange rates by <a href="https://www.exchangerate-api.com" target="_blank" rel="noreferrer">ExchangeRate-API</a>. Rates are informational and may differ from your bank.</p>
+    </footer>
 </body>
 </html>
