@@ -76,7 +76,7 @@ section {
     justify-content: space-between;
     gap: 28px;
     background:
-        radial-gradient(ellipse at 88% 10%, rgb(229 9 20 / 14%), transparent 45%),
+        radial-gradient(ellipse at 88% 10%, rgb(123 184 165 / 14%), transparent 45%),
         var(--surface);
 }
 
@@ -173,7 +173,7 @@ button {
     min-height: 44px;
     padding: 11px 18px;
     background: var(--red);
-    color: var(--white);
+    color: var(--background);
     border: 1px solid var(--red);
     border-radius: 7px;
     font: inherit;
@@ -238,12 +238,17 @@ input:focus-visible {
     overflow-wrap: anywhere;
 }
 
-.status-ready {
+.status-loading {
     border-left-color: var(--blue-accent);
+}
+
+.status-ready {
+    border-left-color: var(--red);
 }
 
 .status-error {
     border-left-color: #f1aa54;
+    overflow-wrap: anywhere;
 }
 
 .retry-button {
@@ -258,6 +263,7 @@ input:focus-visible {
 
 .retry-button:hover {
     background: var(--surface-light);
+    color: var(--white);
 }
 
 .primary-button {
@@ -297,6 +303,7 @@ input:focus-visible {
 .original-amount {
     color: var(--muted);
     font-size: 0.88rem;
+    overflow-wrap: anywhere;
 }
 
 .expense-values {
@@ -306,6 +313,7 @@ input:focus-visible {
 .converted-amount {
     font-size: 0.94rem;
     font-weight: 700;
+    overflow-wrap: anywhere;
 }
 
 .delete-button {
@@ -319,6 +327,7 @@ input:focus-visible {
 
 .delete-button:hover {
     background: #35191c;
+    color: var(--white);
 }
 
 .site-footer {
@@ -370,6 +379,7 @@ input:focus-visible {
     .section-heading {
         align-items: stretch;
         flex-direction: column;
+        gap: 12px;
     }
 
     .filter-group {
@@ -382,8 +392,12 @@ input:focus-visible {
 
     .expense-card {
         grid-template-columns: minmax(0, 1fr) auto;
-        gap: 12px;
-        padding: 14px;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .expense-details {
+        overflow-wrap: anywhere;
     }
 
     .expense-values {
@@ -396,6 +410,7 @@ input:focus-visible {
         grid-column: 2;
         grid-row: 1 / span 2;
         width: auto;
+        align-self: center;
     }
 
     .retry-button {
