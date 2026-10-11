@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.vite/
+
+# Local environment variables
+.env*
+!.env.example
+*.local
+
+# Test and runtime output
+coverage/
+*.log
+
+# Operating system files
+.DS_Store
