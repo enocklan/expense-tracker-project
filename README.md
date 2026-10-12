@@ -4,7 +4,8 @@ Expense Tracker helps travelers, freelancers, and international shoppers underst
 
 ## Live demo
 
-Once published to GitHub Pages, the app will be available at `https://your-github-username.github.io/expense-tracker/`.
+https://enocklan.github.io/expense-tracker-project/
+
 
 ## Features
 
